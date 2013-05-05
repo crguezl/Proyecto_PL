@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Generador de Ex&aacute;menes (Prototipo)</title>
+
+    <!-- INCLUDES -->
+    <link href="css/global_style.css" rel="stylesheet" type="text/css">
+    <style>
+      .hidden { display: none; }
+      .unhidden { display: inline; }
+    </style>
+  </head>
+  <body>
+    <table class="BG_TABLE" border="0">
+      <tr>
+        <td align="center">
+          <table border="0">
+            <th>
+              <p style="background:#FF0000; display:inline;">PROTOTIPO</p> <br>
+              Generador de Ex&aacute;menes
+              <!-- Sustituir este texto por un logo -->
+            </th>
+            <tr>
+              <td>
+                <p>
+                  Este generador de ex&aacute;menes usa el lenguaje de dom&iacute;nio 
+                  espec&iacute;fico desarrollado por nosotros.
+                </p>
+                <p>
+                  <!--
+                    Aquí explicaríamos la sintaxis del lenguaje
+                  -->            
+                </p>
+                <p align="center">
+                  <b>
+                    <u>Forma de uso:</u>
+                 </b><br>
+                  <ol>
+                    <li>Programar el ex&aacute;men respetando la sint&aacute;xis del lenguaje</li>
+                    <li>Una vez programado, pulsar el bot&oacute;n para que se genere el c&oacute;digo resultante </li>
+                  </ol>
+                 </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>
+		<textarea id="TA_INPUT" cols="100" rows="30" autofocus>
+                  ##Title "Test Prototipo"
+                  ##Descp "Soy la descripcion que aparecer&aacute; en el test como cabecera"
+	          ##TrueFalse "&iquest;El color Amarillo es igual al color Verde?"
+		  #! "S&iacute;"
+		  #= "No"
+
+		  ##SelUnica "&iquest;Cu&aacute;l de estos no es un animal?"
+		  #! "Pato"
+		  #! "Perro"
+		  #= "Ocarina"
+		  #! "Gallina Sedosa"
+		</textarea>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input id="B_GENERAR" value="Generar" type="button" onClick="document.getElementById('OUTPUT').className = 'unhidden'">
+              </td>
+            </tr>
+	    <div>
+	      <tr>
+		<td>
+                 <pre id="OUTPUT" class="hidden">
+                    &lt;html&gt;
+                    &lt;head&gt;
+                    &lt;title&gt;Test Prototipo&lt;/title&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                    &lt;h2&gt;Test Prototipo&lt;/h2&gt;
+                    &lt;p&gt;Soy la descripcion que aparecer&aacute; en el test como cabecera&lt;/p&gt;
+                    &lt;?php
+                      if ((isset($_POST['realizado')) && (($_POST['realizado') == 'true')) {
+                        if ((!empty($_POST['respuesta_1']) && (!empty($_POST['respuesta_2']))) {
+                        echo '&lt;table border="1"&gt;';
+                        echo '&lt;tr&gt;';
+                        echo '&lt;td&gt;Pregunta 1&lt;/td&gt;';
+                        echo '&lt;td&gt;Pregunta 2&lt;/td&gt;';
+                        echo '&lt;td&gt;Pregunta 3&lt;/td&gt;';
+                        echo '&lt;/tr&gt;';
+                        echo '&lt;tr&gt;';
+                        echo '&lt;td&gt;';
+
+                        if ($_POST['respuesta_1'] == '2') {
+                          echo "Bien";
+                        } else {
+                          echo "Mal";
+                        }
+                        echo '&lt;/td&gt;';
+                        echo '&lt;td&gt;';
+                        
+                        if ($_POST['respuesta_2'] == '3') {
+                          echo "Bien";
+                        } else {
+                          echo "Mal";
+                        }
+                        echo '&lt;/td&gt;';
+                        echo '&lt;/tr&gt;';
+                        echo '&lt;/table&gt;';                        
+                        unset($_POST['realizado'));                        
+                        } else {
+                          echo '&lt;p style="background:#FF0000; display:inline;"&gt;Debe responder a todas las preguntas&lt;/p&gt;'
+                        }
+                        unset($_POST['realizado'));
+                      }                    
+                    ?&gt;
+                    &lt;!-- Formulario --&lt;
+                    &lt;h3&gt;PREGUNTAS&lt;/h3&gt;
+                    &lt;form name="examen" action="&lt;?php $_SERVER['PHP_SELF']; ?&gt;" method="post"&gt;
+                    &lt;p&gt;1. &iquest;El color Amarillo es igual al color Verde?&lt;/p&gt;
+                    &lt;input type="radio" value="1" name="respuesta_1" /&gt; S&iacute;&lt;br /&gt;
+                    &lt;input type="radio" value="2" name="respuesta_1" /&gt; No&lt;br /&gt;
+                    &lt;p&gt;2. &iquest;Cu&aacute;l de estos no es un animal?&lt;/p&gt;
+                    &lt;input type="radio" value="1" name="respuesta_2" /&gt; Pato&lt;br /&gt;
+                    &lt;input type="radio" value="2" name="respuesta_2" /&gt; Perro&lt;br /&gt;
+                    &lt;input type="radio" value="3" name="respuesta_2" /&gt; Ocarina&lt;br /&gt;
+                    &lt;input type="radio" value="4" name="respuesta_2" /&gt; Gallina Sedosa&lt;br /&gt; 
+
+                    &lt;p&gt;&lt;input type="submit" name="evaluar" value="true" /&gt;&lt;/p&gt; 
+     
+                    &lt;/form&gt;
+                    &lt;/body&gt;
+                    &lt;/html&gt;
+                  </pre>                  
+                </td>
+              </tr>
+            </div>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+  
