@@ -43,21 +43,22 @@
             <tr>
               <td>
                 <p>
-                  <textarea id="TA_INPUT" class="faisan"  cols="100" rows="30" autofocus></textarea>
+                  <textarea id="TA_INPUT" cols="100" rows="30" autofocus></textarea>
                 </p>
               </td>
             </tr>
             <tr>
               <td>
-                <input id="B_GENERAR" value="Generar" type="button" onClick="document.getElementById('OUTPUT').className = 'unhidden'">
+                <input id="B_GENERAR" value="Generar" type="button">
               </td>
             </tr>
              <div>
 	      <tr>
 		<td>
-                 <pre>
-                    <p id="OUTPUT" class="hidden">
-                    </p>
+                 <input id="B_DESCARGAR" value="Descargar" type="button" class="hidden">
+                 <pre>                    
+                    <p id="OUTPUT" class="hidden">                      
+                    </p>                    
                   </pre>                  
                 </td>
               </tr>
