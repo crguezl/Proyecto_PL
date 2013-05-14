@@ -27,7 +27,7 @@ function clean() {
   
   /* Etiquetas */
   var aux = result;
-  aux = (aux.replace(/&lt;/g,"<")).replace(/\&gt;/g,">");
+  aux = (aux.replace(/&lt;/g,"<")).replace(/&gt;/g,">");
   /* Valores especiales */  
   aux = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />" + aux;
   

@@ -74,7 +74,7 @@
                     &lt;h2&gt;Test Prototipo&lt;/h2&gt;
                     &lt;p&gt;Soy la descripcion que aparecer&aacute; en el test como cabecera&lt;/p&gt;
                     &lt;?php
-                      if ((isset($_POST['examen')) && (($_POST['examen') == 'true')) {
+                      if ((isset($_POST['evaluar')) && (($_POST['evaluar') == 'Evaluar')) {
                         if ((!empty($_POST['respuesta_1']) && (!empty($_POST['respuesta_2']))) {
                         echo '&lt;table border="1"&gt;';
                         echo '&lt;tr&gt;';
@@ -119,7 +119,7 @@
                     &lt;input type="radio" value="3" name="respuesta_2" /&gt; Ocarina&lt;br /&gt;
                     &lt;input type="radio" value="4" name="respuesta_2" /&gt; Gallina Sedosa&lt;br /&gt; 
 
-                    &lt;p&gt;&lt;input type="submit" name="evaluar" value="true" /&gt;&lt;/p&gt; 
+                    &lt;p&gt;&lt;input type="submit" name="evaluar" value="Evaluar" /&gt;&lt;/p&gt; 
      
                     &lt;/form&gt;
                     &lt;/body&gt;

@@ -5,7 +5,9 @@
 %%
 
 \s+                  /* ignoramos espacios en blanco */
-\#\#\w+                { return 'TAG'; }
+\#\#Title	       { return 'TAG_TITLE'; }
+\#\#Descp	       { return 'TAG_DESCP'; }
+\#\#TrueFalse	       { return 'TAG_TRUEFALSE'; }
 \#\!                   { return 'TAG_WRONG'; }
 \#\=                   { return 'TAG_RIGHT'; }
 \"(\\.|[^"])*?\"       { return 'TEXT'; }
@@ -27,18 +29,17 @@ S : TITULO DESCRIPCION CONTENIDO {
 				   aux = aux.replace(/'/g, "\"");
 				   aux = aux.replace(/\#/g,"'");
 				   aux += NEXT_LINE;
-				   contadorPreguntas = 1;
 				   return $1 + $2 + aux + $3 + END_WEB;  
                                   
                                  }
 
   ;
 
-TITULO : 'TAG' 'TEXT' { $$ =  (MENOR + "title" + MAYOR + $2.replace(/\"/g,"") + MENOR + "/title" + MAYOR + NEXT_LINE); }
+TITULO : 'TAG_TITLE' 'TEXT' { $$ =  (MENOR + "title" + MAYOR + $2.replace(/\"/g,"") + MENOR + "/title" + MAYOR + NEXT_LINE); }
 
        ;
 
-DESCRIPCION : 'TAG' 'TEXT' { $$ = $2.replace(/\"/g,"") + NEXT_LINE; }
+DESCRIPCION : 'TAG_DESCP' 'TEXT' { $$ = $2.replace(/\"/g,"") + NEXT_LINE; }
 
             ;
 
@@ -48,7 +49,7 @@ CONTENIDO :
 
           ;
 
-VERDADEROFALSO : 'TAG' 'TEXT' RESPUESTAS { $$ = (P + $2.replace(/\"/g,"") + END_P + NEXT_LINE + $3 + NEXT_LINE); contadorPreguntas++; }
+VERDADEROFALSO : 'TAG_TRUEFALSE' 'TEXT' RESPUESTAS { $$ = (P + $2.replace(/\"/g,"") + END_P + NEXT_LINE + $3 + NEXT_LINE); contadorPreguntas++; }
 
                ;
 
@@ -71,5 +72,5 @@ var INPUT = MENOR + "input type='radio' name='respuesta_";
 var contadorPreguntas = 1;
 var TRUE = "true";
 var FALSE = "false";
-var END_WEB = "&lt;p&gt;&lt;input type='submit' name='evaluar' value='true' /&gt;&lt;/p&gt;"
+var END_WEB = "&lt;p&gt;&lt;input type='submit' name='evaluar' value='Evaluar' /&gt;&lt;/p&gt;"
              + NEXT_LINE + "&lt;/form&gt;" + NEXT_LINE + "&lt;/body&gt;" + NEXT_LINE + "&lt;/html&gt;";
