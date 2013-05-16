@@ -74,7 +74,7 @@
                     &lt;h2&gt;Test Prototipo&lt;/h2&gt;
                     &lt;p&gt;Soy la descripcion que aparecer&aacute; en el test como cabecera&lt;/p&gt;
                     &lt;?php
-                      if ((isset($_POST['examen')) && (($_POST['examen') == 'true')) {
+                      if ((isset($_POST['realizado')) && (($_POST['realizado') == 'true')) {
                         if ((!empty($_POST['respuesta_1']) && (!empty($_POST['respuesta_2']))) {
                         echo '&lt;table border="1"&gt;';
                         echo '&lt;tr&gt;';
@@ -100,8 +100,7 @@
                         }
                         echo '&lt;/td&gt;';
                         echo '&lt;/tr&gt;';
-                        echo '&lt;/table&gt;';                        
-                        unset($_POST['realizado'));                        
+                        echo '&lt;/table&gt;';                              
                         } else {
                           echo '&lt;p style="background:#FF0000; display:inline;"&gt;Debe responder a todas las preguntas&lt;/p&gt;'
                         }
