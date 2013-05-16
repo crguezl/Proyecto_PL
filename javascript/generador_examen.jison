@@ -28,7 +28,7 @@ S : TITULO DESCRIPCION CONTENIDO {
 				   aux = aux.replace(/\#/g,"'");
 				   aux += NEXT_LINE;
 				   contadorPreguntas = 1;
-				   return $1 + $2 + aux + $3;  
+				   return $1 + $2 + aux + $3 + END_WEB;  
                                   
                                  }
 
@@ -71,3 +71,5 @@ var INPUT = MENOR + "input type='radio' name='respuesta_";
 var contadorPreguntas = 1;
 var TRUE = "true";
 var FALSE = "false";
+var END_WEB = "&lt;p&gt;&lt;input type='submit' name='evaluar' value='true' /&gt;&lt;/p&gt;"
+             + NEXT_LINE + "&lt;/form&gt;" + NEXT_LINE + "&lt;/body&gt;" + NEXT_LINE + "&lt;/html&gt;";
