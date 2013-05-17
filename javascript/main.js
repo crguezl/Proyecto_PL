@@ -18,6 +18,19 @@ $(document).ready(function(){
 
 function download() {
  
-  location.href='data:application/download,' + encodeURIComponent(result);
+  var result_replaced = clean();
+  location.href='data:application/download,' + encodeURIComponent(result_replaced);
+  
+}
+
+function clean() {
+  
+  /* Etiquetas */
+  var aux = result;
+  aux = (aux.replace(/&lt;/g,"<")).replace(/\&gt;/g,">");
+  /* Valores especiales */  
+  aux = "<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />" + aux;
+  
+  return aux;
   
 }
