@@ -79,11 +79,11 @@ var generador_examen = (function() {
                     respuestas.push("truefalse");
                     break;
                 case 7:
-                    this.$ = INPUT + contadorPreguntas + "' " + "value='" + TRUE + "'/" + MAYOR + $$[$0 - 1].replace(/\"/g, "") + NEXT_LINE + $$[$0];
+                    this.$ = INPUT + contadorPreguntas + "' " + "value='" + TRUE + "'/" + MAYOR + $$[$0 - 1].replace(/\"/g, "") + "&lt;br&gt;" + NEXT_LINE + $$[$0];
                     aciertos.push(TRUE);
                     break;
                 case 8:
-                    this.$ = INPUT + contadorPreguntas + "' " + "value='" + FALSE + "'/" + MAYOR + $$[$0 - 1].replace(/\"/g, "") + NEXT_LINE + $$[$0];
+                    this.$ = INPUT + contadorPreguntas + "' " + "value='" + FALSE + "'/" + MAYOR + $$[$0 - 1].replace(/\"/g, "") + "&lt;br&gt;" + NEXT_LINE + $$[$0];
                     break;
                 case 9:
                     this.$ = "";

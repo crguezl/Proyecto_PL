@@ -62,8 +62,8 @@ VERDADEROFALSO : 'TAG_TRUEFALSE' 'TEXT' RESPUESTAS { $$ = (P + contadorPreguntas
                ;
 
 RESPUESTAS :  
-             'TAG_RIGHT' 'TEXT' RESPUESTAS { $$ = INPUT + contadorPreguntas + "' " + "value='" + TRUE + "'/" + MAYOR + $2.replace(/\"/g,"") + NEXT_LINE + $3; aciertos.push(TRUE);}
-           | 'TAG_WRONG' 'TEXT' RESPUESTAS { $$ = INPUT + contadorPreguntas + "' " + "value='" + FALSE + "'/" + MAYOR + $2.replace(/\"/g,"") + NEXT_LINE + $3; }
+             'TAG_RIGHT' 'TEXT' RESPUESTAS { $$ = INPUT + contadorPreguntas + "' " + "value='" + TRUE + "'/" + MAYOR + $2.replace(/\"/g,"") + "&lt;br&gt;" + NEXT_LINE + $3; aciertos.push(TRUE);}
+           | 'TAG_WRONG' 'TEXT' RESPUESTAS { $$ = INPUT + contadorPreguntas + "' " + "value='" + FALSE + "'/" + MAYOR + $2.replace(/\"/g,"") + "&lt;br&gt;" + NEXT_LINE + $3; }
            | /* empty */ { $$ = ""; }
 
            ;
