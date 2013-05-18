@@ -57,7 +57,7 @@ CONTENIDO :
 
           ;
 
-VERDADEROFALSO : 'TAG_TRUEFALSE' 'TEXT' RESPUESTAS { $$ = (P + $2.replace(/\"/g,"") + END_P + NEXT_LINE + $3 + NEXT_LINE); contadorPreguntas++; respuestas.push("truefalse"); }
+VERDADEROFALSO : 'TAG_TRUEFALSE' 'TEXT' RESPUESTAS { $$ = (P + contadorPreguntas + ") " + $2.replace(/\"/g,"") + END_P + NEXT_LINE + $3 + NEXT_LINE); contadorPreguntas++; respuestas.push("truefalse"); }
 
                ;
 

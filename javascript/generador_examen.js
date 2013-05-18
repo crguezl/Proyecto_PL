@@ -74,7 +74,7 @@ var generador_examen = (function() {
                     this.$ = "";
                     break;
                 case 6:
-                    this.$ = (P + $$[$0 - 1].replace(/\"/g, "") + END_P + NEXT_LINE + $$[$0] + NEXT_LINE);
+                    this.$ = (P + contadorPreguntas + ") " + $$[$0 - 1].replace(/\"/g, "") + END_P + NEXT_LINE + $$[$0] + NEXT_LINE);
                     contadorPreguntas++;
                     respuestas.push("truefalse");
                     break;
