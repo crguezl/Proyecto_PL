@@ -352,10 +352,10 @@ var generador_examen = (function() {
         if (respuestas.length > 0) {
             descp += "      } else {" + NEXT_LINE;
             descp += "        echo '&lt;p style=Nbackground:#FF0000; display:inline;N&gt;Debe responder a todas las preguntas&lt;/p&gt;';".replace(/\N/g, "\""); + NEXT_LINE;
+            descp += "      }" + NEXT_LINE;
         } else {
             descp += "      echo '&lt;p style=#background:#FF0000; display:inline;#&gt;No hay preguntas que mostrar&lt;/p&gt;';".replace(/\#/g, "\""); + NEXT_LINE;
         }
-        descp += "      }" + NEXT_LINE;
         descp += "      unset($_POST['evaluar']);" + NEXT_LINE;
         descp += "    }" + NEXT_LINE;
         descp += "  ?&gt;" + NEXT_LINE;
