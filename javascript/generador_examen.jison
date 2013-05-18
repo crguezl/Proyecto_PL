@@ -32,6 +32,7 @@ S : TITULO DESCRIPCION CONTENIDO {
 				   $2 = generarPHP($2);
 				   respuestas = [];
 				   aciertos = [];
+				   contadorPreguntas = 1;
 				   return $1 + $2 + aux + $3 + END_WEB;  
                                   
                                  }
@@ -100,7 +101,9 @@ function generarPHP(descp) {
     descp += " && (!empty($_POST['respuesta_" + aux + "']))";
   }
  }
- descp += ") {" + NEXT_LINE;
+ if ( respuestas.length > 0 ) {
+   descp += ") {" + NEXT_LINE;
+ }
  descp += "      echo '&lt;table border=N1N&gt;';".replace(/\N/g,"\"") + NEXT_LINE;
  descp += "      echo '&lt;tr&gt;';" + NEXT_LINE;
  for (i in respuestas) {
@@ -123,8 +126,12 @@ function generarPHP(descp) {
  }
  descp += "      echo '&lt;/tr&gt;';" + NEXT_LINE;
  descp += "      echo '&lt;/table&gt;';" + NEXT_LINE;
- descp += "      } else {" + NEXT_LINE;
- descp += "        echo '&lt;p style=Nbackground:#FF0000; display:inline;N&gt;Debe responder a todas las preguntas&lt;/p&gt;';".replace(/\N/g,"\""); + NEXT_LINE;
+ if ( respuestas.length > 0 ) {
+   descp += "      } else {" + NEXT_LINE;
+   descp += "        echo '&lt;p style=Nbackground:#FF0000; display:inline;N&gt;Debe responder a todas las preguntas&lt;/p&gt;';".replace(/\N/g,"\""); + NEXT_LINE;
+ } else {
+   descp += "      echo '&lt;p style=#background:#FF0000; display:inline;#&gt;No hay preguntas que mostrar&lt;/p&gt;';".replace(/\#/g,"\""); + NEXT_LINE;   
+ }
  descp += "      }" + NEXT_LINE;
  descp += "      unset($_POST['evaluar']);" + NEXT_LINE;
  descp += "    }" + NEXT_LINE;
